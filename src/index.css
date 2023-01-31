@@ -32,3 +32,12 @@ form{
   flex-direction: column;
   flex-wrap: wrap;
 }
+
+label{
+font-size: 40px;
+}
+
+input{
+  height: 30px;
+ 
+}
