@@ -9,15 +9,14 @@ const App = () => {
     fetch('https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07')
       .then((res) => res.json())
       .then((resJson) => {
-        const data = JSON.parse(resJson)
+        const data = resJson
         setData(data)
     })
   }, [])
 
     return (
         
-       <div>{data}
-        </div>
+       <div>{data}</div>
     );
 };
 
