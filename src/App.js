@@ -13,7 +13,7 @@ const App = () => {
                 const response = await fetch(url);
                 const json = await response.json();
                 console.log(json);
-                setData(json.description);
+                setData(json);
             } catch (error) {
                 console.log("error", error);
             }
