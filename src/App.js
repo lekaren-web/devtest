@@ -9,7 +9,7 @@ const [data, setData] = useState(null);
     try {
         const response = await fetch('https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07');
         const json = await response.json();
-	    setData(json)
+	    setData(response.data)
         console.log(json);
 		} catch (error) {
         console.log("error", error);
