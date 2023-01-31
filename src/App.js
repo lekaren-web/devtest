@@ -62,35 +62,35 @@ const App = () => {
         <div>
             <form onSubmit={handleSubmit}>
             <label>
-                Name:
+                <p>Name:</p>
             <input type="text" name="name" onChange=((e) => {
                 setName(e.target.value)
             })/>
             </label>
 
             <label>
-                email:
+                <p>email:</p>
             <input type="text" name="email" onChange=((e) => {
                 setEmail(e.target.value)
             })/>
             </label>
 
             <label>
-                street:
+                <p>street:</p>
             <input type="text" name="street" onChange=((e) => {
                 setStreet(e.target.value)
             })/>
             </label>
 
             <label>
-                city:
+                <p>city:</p>
             <input type="text" name="city" onChange=((e) => {
                 setCity(e.target.value)
             })/>
             </label>
 
             <label>
-                state:
+                <p>state:</p>
             <input type="text" name="state" onChange=((e) => {
                 setState(e.target.value)
             })/>
@@ -98,7 +98,7 @@ const App = () => {
 
 
             <label>
-                zipcode :
+                <p>zipcode :</p>
             <input type="text" name="zipcode" onChange=((e) => {
                 setZipCode(e.target.value)
             })/>
