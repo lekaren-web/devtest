@@ -59,7 +59,7 @@ const App = () => {
     return (
         
       
-        <div >
+        <div class="formPage">
             <div class="form">
             <form onSubmit={handleSubmit} >
             <label for="name">Name</label>
