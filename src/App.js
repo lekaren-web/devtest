@@ -6,14 +6,14 @@ const App = () => {
     const [advice, setAdvice] = useState("");
 
     useEffect(() => {
-        const url = "https://api.adviceslip.com/advice";
+        const url = "https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07";
 
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json.slip.advice);
-                setAdvice(json.slip.advice);
+                console.log(json.description);
+                setAdvice(json.description);
             } catch (error) {
                 console.log("error", error);
             }
