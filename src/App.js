@@ -72,7 +72,7 @@ const App = () => {
             }}/>
 
             <label for="street">Name</label>
-            <input type="text" id="street name="street" onChange={(e) => {
+            <input type="text" id="street" name="street" onChange={(e) => {
                 setStreet(e.target.value)
             }}/>
             
