@@ -62,36 +62,36 @@ const App = () => {
         <div>
             <form onSubmit={handleSubmit}>
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" onChange=((e) => {
+            <input type="text" id="name" name="name" onChange={(e) => {
                 setName(e.target.value)
-            })/>
+            }}/>
 
                <label for="email">Name</label>
-            <input type="text" id="email" name="email" onChange=((e) => {
+            <input type="text" id="email" name="email" onChange={(e) => {
                 setEmail(e.target.value)
-            })/>
+            }}/>
 
             <label for="street">Name</label>
-            <input type="text" id="street name="street" onChange=((e) => {
+            <input type="text" id="street name="street" onChange={(e) => {
                 setStreet(e.target.value)
-            })/>
+            }}/>
             
 
             <label for="city">Name</label>
-            <input type="text" name="city" id="city" onChange=((e) => {
+            <input type="text" name="city" id="city" onChange={(e) => {
                 setCity(e.target.value)
-            })/>
+            }}/>
 
             <label for="state">Name</label>
-            <input type="text" name="state" id="state" onChange=((e) => {
+            <input type="text" name="state" id="state" onChange={(e) => {
                 setState(e.target.value)
-            })/>
+            }}/>
 
 
            <label for="zipcode">Name</label>
-            <input type="text" name="zipcode" id="zipcode" onChange=((e) => {
+            <input type="text" name="zipcode" id="zipcode" onChange={(e) => {
                 setZipCode(e.target.value)
-            })/>
+            }}/>
          
 
         <input type="submit" value="Submit" />
