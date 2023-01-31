@@ -6,21 +6,13 @@ const App = () => {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        const url = "https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07";
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const json = await response.json();
-                console.log(json);
-                setData(json);
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-
-        fetchData();
-    }, []);
+    fetch('https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07')
+      .then((res) => res.json())
+      .then((resJson) => {
+        const data = JSON.parse(resJson)
+        setData(data)
+    })
+  }, [])
 
     return (
         
