@@ -3,21 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const[test, setTes] = useState('');
-  
-  useEffect(() => {
-    const url = "https://api.adviceslip.com/advice"
-}, []);
-    
     const fetchData = async () => {
     try {
-        const response = await fetch(url);
+        const response = await fetch('https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07');
         const json = await response.json();
         console.log(json);
 		} catch (error) {
         console.log("error", error);
 		}
-};
+	};
+}
     
   return (
     <div className="App">
