@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 
 
 const App = () => {
-    const [data, setData] = useState({});
+    const [data, setData] = useState([]);
 
-    useEffect(() => {
-    fetch('https://fe-test.marketing4storage.com/cart/reserve/528560dc-0507-4db9-94f9-f1afa80d0e07')
+     useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
       .then((res) => res.json())
       .then((resJson) => {
-        const data = resJson
-        setData(data)
+        const dataCollected = JSON.parse(resJson)
+        setData(dataCollected)
     })
   }, [])
 
