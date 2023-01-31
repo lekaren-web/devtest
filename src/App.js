@@ -5,7 +5,6 @@ import './App.css';
 function App() {
   const[test, setTes] = useState('');
   
-  const fetchData =  async () => {
   useEffect(() => {
     const url = "https://api.adviceslip.com/advice"
 }, []);
