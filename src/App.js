@@ -24,7 +24,7 @@ const App = () => {
     const handleSubmit = (e) => {
     e.preventDefault();
     setData(e.target.value)
-    axios(options)
+    fetch(options)
     .then(function (response) {
     console.log(response);
   })
