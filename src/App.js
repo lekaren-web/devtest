@@ -61,48 +61,38 @@ const App = () => {
       
         <div>
             <form onSubmit={handleSubmit}>
-            <label>
-                <p>Name:</p>
-            <input type="text" name="name" onChange=((e) => {
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" onChange=((e) => {
                 setName(e.target.value)
             })/>
-            </label>
 
-            <label>
-                <p>email:</p>
-            <input type="text" name="email" onChange=((e) => {
+               <label for="email">Name</label>
+            <input type="text" id="email" name="email" onChange=((e) => {
                 setEmail(e.target.value)
             })/>
-            </label>
 
-            <label>
-                <p>street:</p>
-            <input type="text" name="street" onChange=((e) => {
+            <label for="street">Name</label>
+            <input type="text" id="street name="street" onChange=((e) => {
                 setStreet(e.target.value)
             })/>
-            </label>
+            
 
-            <label>
-                <p>city:</p>
-            <input type="text" name="city" onChange=((e) => {
+            <label for="city">Name</label>
+            <input type="text" name="city" id="city" onChange=((e) => {
                 setCity(e.target.value)
             })/>
-            </label>
 
-            <label>
-                <p>state:</p>
-            <input type="text" name="state" onChange=((e) => {
+            <label for="state">Name</label>
+            <input type="text" name="state" id="state" onChange=((e) => {
                 setState(e.target.value)
             })/>
-            </label>
 
 
-            <label>
-                <p>zipcode :</p>
-            <input type="text" name="zipcode" onChange=((e) => {
+           <label for="zipcode">Name</label>
+            <input type="text" name="zipcode" id="zipcode" onChange=((e) => {
                 setZipCode(e.target.value)
             })/>
-            </label>
+         
 
         <input type="submit" value="Submit" />
 
