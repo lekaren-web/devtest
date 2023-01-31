@@ -59,8 +59,9 @@ const App = () => {
     return (
         
       
-        <div>
-            <form onSubmit={handleSubmit} class="form">
+        <div >
+            <div class="form">
+            <form onSubmit={handleSubmit} >
             <label for="name">Name</label>
             <input type="text" id="name" name="name" onChange={(e) => {
                 setName(e.target.value)
@@ -94,9 +95,10 @@ const App = () => {
             }}/>
          
 
-        <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
 
         </form>
+            </div>
         </div>
 
     );
