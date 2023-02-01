@@ -94,7 +94,7 @@ const App = () => {
             }}/>
   </div>
 
-   <div class="input-state>
+   <div class="input-state">
             <label for="state">State</label>
             <input type="text" name="state" id="state" onChange={(e) => {
                 setState(e.target.value)
