@@ -34,20 +34,20 @@ form{
     padding: 30px;
     background-color: #b1b0ae30;
   justify-content: space-evenly;
-    height: 650px;
+    height: 600px;
   border-radius: 10px;
 
 }
 
 label{
-font-size: 30px;
+font-size: 24px;
     font-weight: 600;
     color: gray;
 }
 
 input{
-  height: 47px;
-    font-size: 32px;
+  height: 38px;
+    font-size: 25px;
   margin-bottom: 10px;
  
 }
