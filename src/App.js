@@ -13,7 +13,7 @@ const App = () => {
     const[ state, setState] = useState("");
     const[ zip_code, setZipCode] = useState("");
     const[ email, setEmail] = useState(null);
-    
+    const [errorMessage, setErrorMessage] = useState("");
     const options = {
   method: 'POST',
   headers: { 'content-type': 'application/x-www-form-urlencoded' }
@@ -27,6 +27,7 @@ const App = () => {
   })
   .catch(function (error) {
     console.log(error);
+        setErrorMessage(error)
   });
   };
 
