@@ -27,7 +27,8 @@ const App = () => {
   })
   .catch(function (error) {
     console.log(error);
-        setErrorMessage(error)
+        setErrorMessage(error);
+        alert(error);
   });
   };
 
