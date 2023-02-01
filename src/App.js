@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, 
+import { BrowserRouter as Router, Routes, 
     Route, Redirect,} from "react-router-dom";
 import tenantForm from "./tenantForm"
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     return (
         
       <Router>
-        <Switch>
+        <Routes>
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
@@ -28,7 +28,7 @@ const App = () => {
           route endpoints then, redirect triggers 
           and redirects app to home component with to="/" */}
           <Redirect to="/" />
-        </Switch>
+        </Routes>
       </Router>
 
     );
