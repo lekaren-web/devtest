@@ -57,14 +57,26 @@ button{
   margin: 0 auto;
 }
 
-.half-row < div {
+.half-row div {
 display: flex;
-flex-direction: column
+flex-direction: column;
 }
 .half-row{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.input-name{
+}
+.input-email{
+}
+.input-street{
+}
+.input-city{
+}
+.input-state{
+}
+.half-row-zip{
 }
 
