@@ -60,10 +60,11 @@ const App = () => {
         
       
         <div class="formPage">
-<div class="half-row">
         
             <div class="form">
             <form onSubmit={handleSubmit} >
+<div class="half-row">
+        
             <label for="name">Name</label>
             <input type="text" id="name" name="name" onChange={(e) => {
                 setName(e.target.value)
