@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const tenantForm = () => {
+const TenantForm = () => {
     const [data, setData] = useState(null);
     const [requestFailed, setrequestFailed] = useState(null);
     const id = '528560dc-0507-4db9-94f9-f1afa80d0e07'        
@@ -118,4 +118,4 @@ const tenantForm = () => {
 )
 }
 
-export default tenantForm
+export default TenantForm
