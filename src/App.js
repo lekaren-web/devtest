@@ -12,7 +12,7 @@ const App = () => {
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
-          <Route exact path="/" element={<TenantForm />} />
+          <Route exact path="/" component={TenantForm} />
             
           {/* This route is for about component 
           with exact path "/about", in component 
