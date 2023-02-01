@@ -17,17 +17,14 @@ const App = () => {
           {/* This route is for about component 
           with exact path "/about", in component 
           props we passes the imported component*/}
-// //           <Route path="/about" component={About} />
             
           {/* This route is for contactus component
           with exact path "/contactus", in 
           component props we passes the imported component*/}
-//           <Route path="/contactus" component={ContactUs} />
             
           {/* If any route mismatches the upper 
           route endpoints then, redirect triggers 
           and redirects app to home component with to="/" */}
-//           <Redirect to="/" />
         </Routes>
       </Router>
 
