@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, 
-    Route, Redirect,} from "react-router-dom";
+    Route} from "react-router-dom";
 import tenantForm from "./tenantForm"
 const App = () => {
     
@@ -27,7 +27,7 @@ const App = () => {
           {/* If any route mismatches the upper 
           route endpoints then, redirect triggers 
           and redirects app to home component with to="/" */}
-          <Redirect to="/" />
+//           <Redirect to="/" />
         </Routes>
       </Router>
 
