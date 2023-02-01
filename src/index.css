@@ -31,13 +31,23 @@ form{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+    padding: 30px;
+    background-color: #b1b0ae30;
+  justify-content: space-evenly;
+    height: 800px;
+  border-radius: 10px;
+
 }
 
 label{
 font-size: 40px;
+    font-weight: 600;
+    color: gray;
 }
 
 input{
-  height: 30px;
+  height: 47px;
+    font-size: 32px;
+  margin-bottom: 10px;
  
 }
