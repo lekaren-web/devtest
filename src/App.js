@@ -63,22 +63,21 @@ const App = () => {
         
             <div class="form">
             <form onSubmit={handleSubmit} >
-<div class="half-row">
-        <div>
+        <div class="input-name">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" onChange={(e) => {
                 setName(e.target.value)
             }}/>
 </div>
-<div>
+<div class="input-email">
                <label for="email">Email</label>
             <input type="text" id="email" name="email" onChange={(e) => {
                 setEmail(e.target.value)
             }}/>
-</div>
 
 </div>
-<div>
+
+<div class="input-street">
             <label for="street">Street</label>
             <input type="text" id="street" name="street" onChange={(e) => {
                 setStreet(e.target.value)
@@ -88,14 +87,14 @@ const App = () => {
 
 
  <div class="half-row">
- <div>
+ <div class="input-city" >
      <label for="city">City</label>
             <input type="text" name="city" id="city" onChange={(e) => {
                 setCity(e.target.value)
             }}/>
   </div>
 
-   <div>
+   <div class="input-state>
             <label for="state">State</label>
             <input type="text" name="state" id="state" onChange={(e) => {
                 setState(e.target.value)
@@ -103,7 +102,7 @@ const App = () => {
     </div>
  </div>
 
-            <div class="half-row">
+            <div class="half-row-zip">
                 <div>
            <label for="zipcode">Zipcode</label>
             <input type="text" name="zipcode" id="zipcode" onChange={(e) => {
