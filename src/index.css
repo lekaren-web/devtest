@@ -29,7 +29,7 @@ code {
 
 form{
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   flex-wrap: wrap;
     padding: 30px;
     background-color: #b1b0ae30;
