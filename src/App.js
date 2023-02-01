@@ -38,7 +38,7 @@ const App = () => {
     fetch(`${api}/cart/reserve/${id}`)
         .then((response) => {
             if(response.status === 200){
-                console.log("SUCCESSS")
+                console.log("SUCCESSS", response.json())
                 return response.json();     
             }else if(response.status === 408){
                 console.log("SOMETHING WENT WRONG")
