@@ -55,6 +55,8 @@ const TenantForm = () => {
   }, [])
   
   return ( <div class="formPage">
+//           Upon error you will get a HTTP 400, with an JSON array of error messages to
+// display to the visitor
         { errorMessage ? 
         (<div>errorMessage</div>)
      : (<div></div>)}
