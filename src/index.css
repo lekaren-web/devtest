@@ -88,8 +88,14 @@ flex-direction: column;
   display: flex;
 flex-direction: column;
 }
+.half-row-zip {
+display: flex;
+flex-direction: row;
+  width: 100%
+}
 .half-row-zip div{
  display: flex;
+  width: 48%;
 flex-direction: column;
 }
 
