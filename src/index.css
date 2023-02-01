@@ -52,9 +52,11 @@ input{
  border: grey;
 }
 
-button{
+.submit-button{
   width:50%;
   margin: 0 auto;
+  background-color: white;
+  border-radius: 6px;
 }
 
 .half-row div {
