@@ -56,3 +56,15 @@ button{
   width:50%;
   margin: 0 auto;
 }
+
+.half-row < div {
+display: flex;
+flex-direction: column
+}
+.half-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
