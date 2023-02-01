@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, 
     Route} from "react-router-dom";
-import tenantForm from "./tenantForm"
+import TenantForm from "../tenantForm"
 const App = () => {
     
     return (
@@ -12,7 +12,7 @@ const App = () => {
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
-          <Route exact path="/" element={<tenantForm />} />
+          <Route exact path="/" element={<TenantForm />} />
             
           {/* This route is for about component 
           with exact path "/about", in component 
