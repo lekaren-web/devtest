@@ -61,7 +61,7 @@ const App = () => {
         <div class="formPage">
         
             <div class="form">
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={e => { handleSubmit(e) } >
         <div class="input-name">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" onChange={(e) => {
