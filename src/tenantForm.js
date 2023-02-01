@@ -1,123 +1,190 @@
 import React, { useEffect, useState } from "react";
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 const TenantForm = () => {
-    const [data, setData] = useState(null);
-    const [requestFailed, setrequestFailed] = useState(null);
-    const id = '528560dc-0507-4db9-94f9-f1afa80d0e07'        
-    
-    const api = `https://fe-test.marketing4storage.com`;
-    const[ name, setName] = useState("");
-    const[ street, setStreet] = useState("");
-    const[ city, setCity] = useState("");
-    const[ state, setState] = useState("");
-    const[ zip_code, setZipCode] = useState("");
-    const[ email, setEmail] = useState(null);
-    const [errorMessage, setErrorMessage] = useState("");
-    const options = {
-  method: 'POST',
-  headers: { 'content-type': 'application/x-www-form-urlencoded' }
-};
-    const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const [data, setData] = useState([]);
+  const [requestFailed, setrequestFailed] = useState(false);
+  const id = "528560dc-0507-4db9-94f9-f1afa80d0e07";
+
+  const api = `https://fe-test.marketing4storage.com`;
+  const [name, setName] = useState(null);
+  const [street, setStreet] = useState(null);
+  const [city, setCity] = useState(null);
+  const [state, setState] = useState(null);
+  const [zip_code, setZipCode] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+    body: data,
+  };
+  const handleSubmit = (e) => {
+    var details = {
+      email,
+      name,
+      zip_code,
+      state,
+      city,
+      street,
+    };
+
+    var formBody = [];
+    for (var property in details) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(details[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+    try {
+      fetch(`${api}/cart/tenant`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: formBody,
+      }).then((response) => {
+        if (response.status === 200) {
+          alert("SUCCESSS");
+            navigate("/payment")
+          return response.json();
+        } else if (response.status != 200) {
+          alert("SOMETHING WENT WRONG");
+
+          setrequestFailed(true);
+          return
+
+        }
+      })
+      
+    } catch (e) {
+      alert(e);
+    }
+
     e.preventDefault();
-    setData(e.target.value)
-    fetch(`${api}/cart/tenant`, options)
-    .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-        setErrorMessage(error);
-        alert(error);
-  });
+    // setData(e.target.value)
+   
   };
 
-   
-    
-     useEffect(() => {
-          console.log("start call api")
+  useEffect(() => {
+    console.log("start call api");
     fetch(`${api}/cart/reserve/${id}`)
-        .then((response) => {
-            if(response.status === 200){
-                console.log("SUCCESSS", response.json())
-                return response.json();     
-            }else if(response.status === 408){
-                console.log("SOMETHING WENT WRONG")
-                setrequestFailed(true)
-            }
-        })
-        .then((e) => {
-        setData(e.response)
-            console.log("DATA STORED")
-        })
-        .catch((error) => {
-            setrequestFailed(true)
-        })
-  }, [])
-  
-  return ( <div class="formPage">
-//           Upon error you will get a HTTP 400, with an JSON array of error messages to
-// display to the visitor
-        { errorMessage ? 
-        (<div>errorMessage</div>)
-     : (<div></div>)}
-            <div class="form">
-            <form onSubmit={e => { handleSubmit(e) }} >
-        <div class="input-name">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" onChange={(e) => {
-                setName(e.target.value)
-            }}/>
-</div>
-<div class="input-email">
-               <label for="email">Email</label>
-            <input type="text" id="email" name="email" onChange={(e) => {
-                setEmail(e.target.value)
-            }}/>
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("SUCCESSS");
+          return response.json();
+        } else if (response.status === 408) {
+          console.log("SOMETHING WENT WRONG");
+          setrequestFailed(true);
+        }
+      })
+      .then((e) => {
+        setData(e.response);
+        console.log("DATA STORED");
+      })
+      .catch((error) => {
+        setrequestFailed(true);
+      });
+  }, []);
 
-</div>
+  return (
+    <div className="formPage">
+      {/* //           Upon error you will get a HTTP 400, with an JSON array of error messages to
+// display to the visitor */}
+      {errorMessage ? <div>{{ errorMessage }}</div> : <div></div>}
+      <div className="form">
+      <code>Tenant Form</code>
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          <div className="input-name">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div className="input-email">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
 
-<div class="input-street">
-            <label for="street">Street</label>
-            <input type="text" id="street" name="street" onChange={(e) => {
-                setStreet(e.target.value)
-            }}/>  
-</div>
+          <div className="input-street">
+            <label htmlFor="street">Street</label>
+            <input
+              type="text"
+              id="street"
+              name="street"
+              onChange={(e) => {
+                setStreet(e.target.value);
+              }}
+            />
+          </div>
 
+          <div className="half-row">
+            <div className="input-city">
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+              />
+            </div>
 
+            <div className="input-state">
+              <label htmlFor="state">State</label>
+              <input
+                type="text"
+                name="state"
+                id="state"
+                onChange={(e) => {
+                  setState(e.target.value);
+                }}
+              />
+            </div>
+          </div>
 
- <div class="half-row">
- <div class="input-city" >
-     <label for="city">City</label>
-            <input type="text" name="city" id="city" onChange={(e) => {
-                setCity(e.target.value)
-            }}/>
-  </div>
+          <div className="half-row-zip">
+            <div>
+              <label htmlFor="zipcode">Zipcode</label>
+              <input
+                type="text"
+                name="zipcode"
+                id="zipcode"
+                onChange={(e) => {
+                  setZipCode(e.target.value);
+                }}
+              />
+            </div>
 
-   <div class="input-state">
-            <label for="state">State</label>
-            <input type="text" name="state" id="state" onChange={(e) => {
-                setState(e.target.value)
-            }}/>
-    </div>
- </div>
-
-            <div class="half-row-zip">
-                <div>
-           <label for="zipcode">Zipcode</label>
-            <input type="text" name="zipcode" id="zipcode" onChange={(e) => {
-                setZipCode(e.target.value)
-            }}/>
-</div>
-            
             <div></div>
-            </div>
+          </div>
 
-            <input class="submit-button" type="submit" value="Submit" />
-
+          <input className="submit-button" type="submit" value="Submit" />
         </form>
-            </div>
-        </div>
-)
-}
+      </div>
+    </div>
+  );
+};
 
-export default TenantForm
+export default TenantForm;
