@@ -6,21 +6,26 @@ const PaymentForm = () => {
     const id = '528560dc-0507-4db9-94f9-f1afa80d0e07'        
     
     const api = `https://fe-test.marketing4storage.com`;
-    const[ name, setName] = useState("");
-    const[ street, setStreet] = useState("");
-    const[ city, setCity] = useState("");
-    const[ state, setState] = useState("");
-    const[ zip_code, setZipCode] = useState("");
-    const[ email, setEmail] = useState(null);
+    const[ card_number, setcard_number] = useState('4242424242424242');
+    const[ name_on_card, setname_on_card] = useState("");
+    const[ expiration_month, setexpiration_month] = useState("");
+    const[ expiration_year, setexpiration_year] = useState("");
+    const[ cvv, setcvv] = useState("");
+//     Must be 2023 to 2030.
     const [errorMessage, setErrorMessage] = useState("");
-    const options = {
+
+// ○ cvv - card 3-digit security code. You can use any 3 digit number for testing.
+// ○ You will post this to the backend endpoint using content type
+// “application/x-www-form-urlencoded”. The url is
+// https://fe-test.marketing4storage.com/cart/payment
+   const options = {
   method: 'POST',
   headers: { 'content-type': 'application/x-www-form-urlencoded' }
 };
     const handleSubmit = (e) => {
     e.preventDefault();
     setData(e.target.value)
-    fetch(`${api}/cart/tenant`, options)
+    fetch(`${api}/cart/payment`, options)
     .then(function (response) {
     console.log(response);
   })
@@ -61,23 +66,23 @@ const PaymentForm = () => {
             <div class="form">
             <form onSubmit={e => { handleSubmit(e) }} >
         <div class="input-name">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" onChange={(e) => {
-                setName(e.target.value)
+            <label for="card_number">Card Number</label>
+            <input type="text" id="card_number" name="card_number" onChange={(e) => {
+                setcard_number(e.target.value)
             }}/>
 </div>
 <div class="input-email">
-               <label for="email">Email</label>
-            <input type="text" id="email" name="email" onChange={(e) => {
-                setEmail(e.target.value)
+               <label for="name_on_card">Name on Card</label>
+            <input type="text" id="name_on_card" name="name_on_card" onChange={(e) => {
+                setname_on_card(e.target.value)
             }}/>
 
 </div>
 
 <div class="input-street">
-            <label for="street">Street</label>
-            <input type="text" id="street" name="street" onChange={(e) => {
-                setStreet(e.target.value)
+            <label for="expiration_month">Expiration Month</label>
+            <input type="text" id="expiration_month" name="expiration_month" onChange={(e) => {
+                setexpiration_month(e.target.value)
             }}/>  
 </div>
 
@@ -85,30 +90,19 @@ const PaymentForm = () => {
 
  <div class="half-row">
  <div class="input-city" >
-     <label for="city">City</label>
-            <input type="text" name="city" id="city" onChange={(e) => {
-                setCity(e.target.value)
+     <label for="expiration_year">City</label>
+            <input type="text" name="expiration_year" id="expiration_year" onChange={(e) => {
+                setexpiration_year(e.target.value)
             }}/>
   </div>
 
    <div class="input-state">
-            <label for="state">State</label>
-            <input type="text" name="state" id="state" onChange={(e) => {
-                setState(e.target.value)
+            <label for="cvv">Cvv</label>
+            <input type="text" name="cvv" id="cvv" onChange={(e) => {
+                setcvv(e.target.value)
             }}/>
     </div>
  </div>
-
-            <div class="half-row-zip">
-                <div>
-           <label for="zipcode">Zipcode</label>
-            <input type="text" name="zipcode" id="zipcode" onChange={(e) => {
-                setZipCode(e.target.value)
-            }}/>
-</div>
-            
-            <div></div>
-            </div>
 
             <input class="submit-button" type="submit" value="Submit" />
 
