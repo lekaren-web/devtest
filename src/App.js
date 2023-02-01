@@ -19,12 +19,12 @@ const App = () => {
   method: 'POST',
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
   data: data,
-  url: `${api}/cart/tenant`,
+  body: JSON.stringify({ title: 'React POST Request Example' })
 };
     const handleSubmit = (e) => {
     e.preventDefault();
     setData(e.target.value)
-    fetch(options)
+    fetch(`${api}/cart/tenant`, options)
     .then(function (response) {
     console.log(response);
   })
