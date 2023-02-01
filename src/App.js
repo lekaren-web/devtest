@@ -112,7 +112,7 @@ const App = () => {
             <div></div>
             </div>
 
-            <input type="submit" value="Submit" />
+            <input class="submit-button" type="submit" value="Submit" />
 
         </form>
             </div>
