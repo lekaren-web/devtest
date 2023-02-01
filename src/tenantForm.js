@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
-
+import BoltLoaderComponent from "./LoadingComponent"
 const TenantForm = () => {
   const navigate = useNavigate();
-
+  const [isLoading, setisLoading] = useState(true);
   const [data, setData] = useState([]);
   const [requestFailed, setrequestFailed] = useState(false);
   const id = "528560dc-0507-4db9-94f9-f1afa80d0e07";
@@ -50,7 +50,7 @@ const TenantForm = () => {
       }).then((response) => {
         if (response.status === 200) {
           alert("SUCCESSS");
-            navigate("/payment")
+            navigate("/cart/payment")
           return response.json();
         } else if (response.status != 200) {
           alert("SOMETHING WENT WRONG");
@@ -76,6 +76,7 @@ const TenantForm = () => {
       .then((response) => {
         if (response.status === 200) {
           console.log("SUCCESSS");
+          setisLoading(false)
           return response.json();
         } else if (response.status === 408) {
           console.log("SOMETHING WENT WRONG");
@@ -92,10 +93,11 @@ const TenantForm = () => {
   }, []);
 
   return (
-    <div className="formPage">
-      {/* //           Upon error you will get a HTTP 400, with an JSON array of error messages to
-// display to the visitor */}
+    <div className="formPage" style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+      
       {errorMessage ? <div>{{ errorMessage }}</div> : <div></div>}
+      { !isLoading ? (
+
       <div className="form">
       <code>Tenant Form</code>
         <form
@@ -106,6 +108,8 @@ const TenantForm = () => {
           <div className="input-name">
             <label htmlFor="name">Name</label>
             <input
+            required
+
               type="text"
               id="name"
               name="name"
@@ -117,6 +121,7 @@ const TenantForm = () => {
           <div className="input-email">
             <label htmlFor="email">Email</label>
             <input
+            required
               type="text"
               id="email"
               name="email"
@@ -129,6 +134,7 @@ const TenantForm = () => {
           <div className="input-street">
             <label htmlFor="street">Street</label>
             <input
+            required
               type="text"
               id="street"
               name="street"
@@ -142,6 +148,7 @@ const TenantForm = () => {
             <div className="input-city">
               <label htmlFor="city">City</label>
               <input
+              required
                 type="text"
                 name="city"
                 id="city"
@@ -154,6 +161,7 @@ const TenantForm = () => {
             <div className="input-state">
               <label htmlFor="state">State</label>
               <input
+              required
                 type="text"
                 name="state"
                 id="state"
@@ -168,6 +176,7 @@ const TenantForm = () => {
             <div>
               <label htmlFor="zipcode">Zipcode</label>
               <input
+              required
                 type="text"
                 name="zipcode"
                 id="zipcode"
@@ -180,9 +189,10 @@ const TenantForm = () => {
             <div></div>
           </div>
 
-          <input className="submit-button" type="submit" value="Submit" />
+          <input
+          required className="submit-button" type="submit" value="Submit" />
         </form>
-      </div>
+      </div>):(<BoltLoaderComponent />)}
     </div>
   );
 };

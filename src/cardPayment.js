@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
-
+import BoltLoaderComponent from "./LoadingComponent"
 const PaymentForm = () => {
     const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [alldata, setAllData] = useState(null);
   const [requestFailed, setrequestFailed] = useState(null);
   const id = "528560dc-0507-4db9-94f9-f1afa80d0e07";
-
+  const [isLoading, setisLoading] = useState(true);
   const api = `https://fe-test.marketing4storage.com`;
-  const [card_number, setcard_number] = useState("4242424242424242");
+  const [card_number, setcard_number] = useState("");
   const [name_on_card, setname_on_card] = useState("");
   const [expiration_month, setexpiration_month] = useState("");
   const [expiration_year, setexpiration_year] = useState("");
@@ -59,13 +59,11 @@ const PaymentForm = () => {
       .then((response) => {
         if (response.status === 200) {
             setAllData(response.data)
-          alert("SUCCESSS");
-          navigate("/receipt");
-
+          alert("SUCCESSSFULLY ADDED PAYMENT METHOD");
+          navigate("/cart/submit-reservation");
           return response.json();
         } else if (response.status != 200) {
           alert("SOMETHING WENT WRONG");
-
           setrequestFailed(true);
           return
 
@@ -81,7 +79,8 @@ const PaymentForm = () => {
     fetch(`${api}/cart/reserve/${id}`)
       .then((response) => {
         if (response.status === 200) {
-          console.log("SUCCESSS", response.json());
+          console.log("SUCCESSS");
+          setisLoading(false)
           return response.json();
         } else if (response.status === 408) {
           console.log("SOMETHING WENT WRONG");
@@ -98,9 +97,9 @@ const PaymentForm = () => {
   }, []);
 
   return (
-    <div className="formPage">
+    <div className="formPage" style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
       {errorMessage ? <div>errorMessage</div> : <div></div>}
-      <div className="form">
+      {!isLoading ? (<div className="form">
           <code>Payment Form</code>
         <form
           onSubmit={(e) => {
@@ -110,6 +109,7 @@ const PaymentForm = () => {
           <div className="input-name">
             <label htmlFor="card_number">Card Number</label>
             <input
+              required
               type="text"
               id="card_number"
               name="card_number"
@@ -121,6 +121,7 @@ const PaymentForm = () => {
           <div className="input-email">
             <label htmlFor="name_on_card">Name on Card</label>
             <input
+            required
               type="text"
               id="name_on_card"
               name="name_on_card"
@@ -133,6 +134,7 @@ const PaymentForm = () => {
           <div className="input-street">
             <label htmlFor="expiration_month">Expiration Month</label>
             <input
+            required
               type="text"
               id="expiration_month"
               name="expiration_month"
@@ -146,6 +148,8 @@ const PaymentForm = () => {
             <div className="input-city">
               <label htmlFor="expiration_year">Expiration Year</label>
               <input
+              required
+
                 type="text"
                 name="expiration_year"
                 id="expiration_year"
@@ -158,19 +162,23 @@ const PaymentForm = () => {
             <div className="input-state">
               <label htmlFor="cvv">Cvv</label>
               <input
+              required
                 type="text"
                 name="cvv"
                 id="cvv"
                 onChange={(e) => {
-                  setcvv(e.target.value);
+                
+                    setcvv(e.target.value);
+                
                 }}
               />
             </div>
           </div>
 
-          <input className="submit-button" type="submit" value="Submit" />
+          <input
+          required className="submit-button" type="submit" value="Submit" />
         </form>
-      </div>
+      </div>):(<BoltLoaderComponent />)}
     </div>
   );
 };
