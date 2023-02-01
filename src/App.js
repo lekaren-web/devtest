@@ -13,7 +13,7 @@ const App = () => {
     const[ city, setCity] = useState("");
     const[ state, setState] = useState("");
     const[ zip_code, setZipCode] = useState("");
-    const[ email, setEmail] = useState("");
+    const[ email, setEmail] = useState(null);
     
     const options = {
   method: 'POST',
