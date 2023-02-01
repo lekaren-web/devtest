@@ -53,16 +53,17 @@ input{
 }
 
 .submit-button{
-  width:40%;
+  width: 35%;
   margin: 0 auto;
-  background-color: white;
+  background-color: gray;
+  color: white;
   border-radius: 6px;
 }
 
 .half-row div {
 display: flex;
 flex-direction: column;
-width: 49%
+width: 46%
 }
 .half-row{
   display: flex;
