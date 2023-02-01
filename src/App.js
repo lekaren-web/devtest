@@ -16,9 +16,7 @@ const App = () => {
     
     const options = {
   method: 'POST',
-  headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  data: data,
-  body: JSON.stringify({ title: 'React POST Request Example' })
+  headers: { 'content-type': 'application/x-www-form-urlencoded' }
 };
     const handleSubmit = (e) => {
     e.preventDefault();
