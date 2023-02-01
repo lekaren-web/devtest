@@ -67,16 +67,27 @@ flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.input-name{
+.input-name{display: flex;
+flex-direction: column;
 }
 .input-email{
+  display: flex;
+flex-direction: column;
 }
 .input-street{
+  display: flex;
+flex-direction: column;
 }
 .input-city{
+  display: flex;
+flex-direction: column;
 }
 .input-state{
+  display: flex;
+flex-direction: column;
 }
 .half-row-zip{
+  display: flex;
+flex-direction: column;
 }
 
