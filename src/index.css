@@ -49,5 +49,10 @@ input{
   height: 38px;
     font-size: 25px;
   margin-bottom: 10px;
- 
+ border: grey;
+}
+
+button{
+  width:50%;
+  margin: 0 auto;
 }
