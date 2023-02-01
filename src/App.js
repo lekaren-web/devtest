@@ -58,7 +58,9 @@ const App = () => {
         
       
         <div class="formPage">
-        
+        { if (errorMessage){
+        <div>errorMessage</div>
+    }}
             <div class="form">
             <form onSubmit={e => { handleSubmit(e) }} >
         <div class="input-name">
