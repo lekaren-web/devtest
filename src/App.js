@@ -60,40 +60,58 @@ const App = () => {
         
       
         <div class="formPage">
+<div class="half-row">
+        
             <div class="form">
             <form onSubmit={handleSubmit} >
             <label for="name">Name</label>
             <input type="text" id="name" name="name" onChange={(e) => {
                 setName(e.target.value)
             }}/>
-
+</div>
+<div>
                <label for="email">Email</label>
             <input type="text" id="email" name="email" onChange={(e) => {
                 setEmail(e.target.value)
             }}/>
+</div>
 
+</div>
+<div>
             <label for="street">Street</label>
             <input type="text" id="street" name="street" onChange={(e) => {
                 setStreet(e.target.value)
-            }}/>
-            
+            }}/>  
+</div>
 
-            <label for="city">City</label>
+
+
+ <div class="half-row">
+ <div>
+     <label for="city">City</label>
             <input type="text" name="city" id="city" onChange={(e) => {
                 setCity(e.target.value)
             }}/>
+  </div>
 
+   <div>
             <label for="state">State</label>
             <input type="text" name="state" id="state" onChange={(e) => {
                 setState(e.target.value)
             }}/>
+    </div>
+ </div>
 
-
+            <div class="half-row">
+                <div>
            <label for="zipcode">Zipcode</label>
             <input type="text" name="zipcode" id="zipcode" onChange={(e) => {
                 setZipCode(e.target.value)
             }}/>
-         
+</div>
+            
+            <div></div>
+            </div>
 
             <input type="submit" value="Submit" />
 
