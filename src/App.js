@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from "react";
 
-
 const App = () => {
     const [data, setData] = useState(null);
     const [requestFailed, setrequestFailed] = useState(null);
